@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"email/controllers"
+	"Email/controllers"
 	"github.com/astaxie/beego"
 )
 

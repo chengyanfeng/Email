@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "email/routers"
+	_ "Email/routers"
 	"github.com/astaxie/beego"
 )
 
