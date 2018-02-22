@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化C</title>
+    <script type="text/javascript" src="http://wiki.datahunter.cn/demo/mobilepage/page3/html5shiv.js"></script>
+    <script type="text/javascript" src="http://wiki.datahunter.cn/demo/mobilepage/page3/html5shiv-printshiv.js"></script>
+</head>
+<style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
+    html,
+    body {
+        width: 100%;
+        margin: 0;
+        background-color: #f2f2f2;
+    }
+    .page3 h3,
+    .page3 ul,
+    .page3 p,
+    .page3 button {
+        margin: 0;
+        padding: 0;
+    }
+    .page3 li {
+        list-style: none;
+    }
+    .page3 a {
+        text-decoration: none!important;
+    }
+    .page3 a:focus {
+        outline: none;
+    }
+    .page3 button {
+        border: none;
+        background-color: transparent;
+    }
+    .page3-wrap {
+        width: 100%;
+        background-color: #f2f2f2;
+    }
+    .page3 {
+        width: 600px;
+        height: 100%;
+        background-color: #f2f2f2;
+        position: relative;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .page3 .header {
+        width: 100%;
+        height: 240px;
+        background-image: url(http://wiki.datahunter.cn/demo/mobilepage/page3/image/banner.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        position: relative;
+    }
+    .page3 .header a {
+        display: block;
+        width: 213px;
+        height: 59px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(http://wiki.datahunter.cn/demo/mobilepage/page3/image/logo.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right bottom;
+    }
+    .page3_body {
+        width: 100%;
+        height: 1006px;
+        padding: 48px 0;
+        position: relative;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+    .page3_body .title {
+        line-height: 22px;
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 48px;
+        color: #333333;
+    }
+    .page3_body .section {
+        padding: 0 45px;
+    }
+    .page3_body .examples {
+        height: 366px;
+        padding-bottom: 48px;
+    }
+    .page3_body .examples h3 {
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: normal;
+        color: #333333;
+        margin-bottom: 28px;
+    }
+    .page3_body .examples ul {
+        height: 270px;
+        clear: both;
+    }
+    .page3_body .examples ul .share1 {
+        float: left;
+        margin-left: 24px;
+    }
+    .page3_body .examples ul .share2 {
+        float: right;
+        margin-right: 24px;
+    }
+    .page3_body .examples ul li {
+        width: 204px;
+        box-shadow: 4px 4px 10px #cccccc;
+    }
+    .page3_body .examples ul li a {
+        float: left;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+    }
+    .page3_body .examples ul li a span {
+        float: left;
+        width: 100%;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .page3_body .examples ul li a p {
+        float: left;
+        height: 70px;
+        font-size: 14px;
+        color: #666666;
+        padding: 18px 20px 0 20px;
+    }
+    .page3_body .examples ul .share1 span {
+        background-image: url(http://wiki.datahunter.cn/demo/mobilepage/page3/image/share1.jpg);
+    }
+    .page3_body .examples ul .share2 span {
+        background-image: url(http://wiki.datahunter.cn/demo/mobilepage/page3/image/share2.jpg);
+    }
+    .page3_body .information {
+        margin-bottom: 20px;
+    }
+    .page3_body .information h3 {
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: normal;
+        color: #333333;
+        margin-bottom: 32px;
+    }
+    .page3_body .information .lists {
+        height: 180px; 
+    }
+    .page3_body .information .lists li {
+        height: 90px;
+        clear: both;
+        padding-bottom: 28px;
+    }
+    .page3_body .information .lists li div {
+        float: left;
+        width: 398px;
+    }
+    .page3_body .information .lists li div span {
+        display: block;
+    }
+    .page3_body .information .lists li div .lists-title {
+        font-size: 14px;
+        color: #666666;
+        line-height: 14px;
+        margin-bottom: 12px;
+    }
+    .page3_body .information .lists li div .lists-content {
+        font-size: 12px;
+        color: #999999;
+        line-height: 18px;
+    }
+    .page3_body .information .lists li .btn {
+        float: right;
+        width: 80px;
+        height: 30px;
+    }
+    .page3_body .information .lists li .btn a {
+        float: right;
+        text-align: center;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 5px;
+        background-color: #23c132;
+        font-size: 12px;
+        color: #fff;
+    }
+    .page3_body .hot-news h3 {
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: normal;
+        color: #333333;
+        margin-bottom: 24px;
+    }
+    .page3_body .hot-news ul li {
+        height: 30px;
+        margin-bottom: 20px;
+    }
+    .page3_body .hot-news ul li span {
+        float: left;
+        font-size: 14px;
+        color: #666666;
+        line-height: 30px;
+    }
+    .page3_body .hot-news ul li .btn {
+        float: right;
+        height: 30px;
+        width: 80px;
+    }
+    .page3_body .hot-news ul li .btn a {
+        float: right;
+        text-align: center;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 5px;
+        font-size: 12px;
+        background-color: #23c132;
+        color: #fff;
+    }
+    .page3_body .zh {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        margin-top: 30px;
+        border-top: 1px dashed #ccc;
+    }
+    .page3 footer {
+        width: 100%;
+        height: 163px;
+        position: relative;
+    }
+    .page3 footer img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .page3 .copyright {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        color: rgba(153, 153, 153, 0.7);
+        transform: scale(0.8);
+        font-size: 14px;
+        line-height: 20px;
+        padding: 10px 0;
+    }
+</style>
+<body>
+    <div class="page3-wrap">
+        <div class="page3">
+            <div class="header"><a href="https://www.datahunter.cn/"></a></div>
+            <div class="page3_body">
+                <h3 class="title">【DataHunter特供】不可错过的数据可视化资讯</h3>
+                <div class="section examples">
+                    <h3>案例分享</h3>
+                    <ul>
+                        <li class="share1">
+                            <a href="http://mp.weixin.qq.com/s/7iMYgyUdI1Ax_EicxSbxHQ" target="blank">
+                                <span></span>
+                                <p>中国工业物联网最佳实践，三一重工案例分享</p>
+                            </a>
+                        </li>
+                        <li class="share2">
+                            <a href="http://mp.weixin.qq.com/s/_hgRuMnrwUzSXB24jEVihg" target="blank">
+                                <span></span>
+                                <p>全球知名快消企业如何进行销售管理？</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section information">
+                    <h3>趣味资讯</h3>
+                    <ul class="lists">
+                        <li>
+                            <div>
+                                <span class="lists-title">这个冬天，我们还能看到北京的雪吗？</span>
+                                <span class="lists-content">全国各地都下雪了，除了大北京。年头将至，我们还能等到北京的大雪吗？先看历史数据吧~</span>
+                            </div>
+                            <div class="btn"><a href="http://mp.weixin.qq.com/s/fEXScrsl4r7QE4AWVwXq8Q" target="blank">查看更多</a></div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="lists-title">趣味数据：五行吃货</span>
+                                <span class="lists-content">金系、木系、水系、火系、土系食物都有哪些？这些食物的营养成分如何？应该怎么选择？本文给你答案......</span>
+                            </div>
+                            <div class="btn"><a href="http://mp.weixin.qq.com/s/YmJLCSfdG43ddyAOI07Pag" target="blank">查看更多</a></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section hot-news">
+                    <h3>行业热点</h3>
+                    <ul>
+                        <li>
+                            <span>2018年数据可视化的八个趋势</span>
+                            <div class="btn"><a href="https://www.iyiou.com/p/63071" target="blank">查看更多</a></div>
+                        </li>
+                        <li>
+                            <span>出行大数据，滴滴发布400城数据可视化分析</span>
+                            <div class="btn"><a href="http://www.sohu.com/a/214669246_464033" target="blank">查看更多</a></div>
+                        </li>
+                        <li>
+                            <span>《全球贸易观察》大数据系统发布 全部查询实现数据可视化</span>
+                            <div class="btn"><a href="http://mil.news.sina.com.cn/2018-01-19/doc-ifyquixe4553806.shtml" target="blank">查看更多</a></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="zh">DataHunter在这里提前祝您新春愉快，狗年大吉！</div>
+            </div>
+            <footer>
+                <img src="http://wiki.datahunter.cn/demo/mobilepage/page3/image/bottomBanner.jpg">
+            </footer>
+            <p class="copyright">京ICP备12012797号  ©2016 DataHunter Inc.All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>

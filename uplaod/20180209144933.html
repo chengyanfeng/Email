@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>edm</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: "Microsoft YaHei", Arial, "Hiragino Sans GB", STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+    }
+
+    .tenx-body {
+      width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0px 3px 6px rgb(204, 204, 204);
+      font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+    }
+
+    .padding50 {
+      padding: 0 50px;
+    }
+    .padding30{padding:0 30px}
+
+    .header_nav {
+      height: 75px;
+      line-height: 80px;
+      color: #2E97E8;
+      border-bottom: 1px solid #eee;
+    }
+
+    .tenx-body a {
+      text-decoration: none;
+      color: #656565;
+    }
+
+    .header-text {
+      text-align: right;
+      font-weight: 500;
+      font-family: "黑体";
+    }
+
+    .tenx-body-title {
+      height: 120px;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .tenx-h1 {
+      color: #656565;
+      font-size: 50px;
+      margin-bottom: 15px;
+      line-height: 50px;
+    }
+
+    .tenx-h2 {
+      color: #656565;
+      font-size: 30px;
+      margin-bottom: 15px;
+      padding-top: 20px;
+      line-height: 20px;
+    }
+
+    .tenx-h3 {
+      color: #656565;
+      font-size: 17px;
+      margin-bottom: 10px;
+      line-height: 30px;
+    }
+
+    .tenx-h4 {
+      color: #656565;
+      font-size: 14px;
+      line-height: 25px;
+      margin-bottom: 15px;
+    }
+
+    .tenx-h5 {
+      color: #656565;
+      font-size: 14px;
+      line-height: 25px;
+      margin-bottom: 5px;
+    }
+
+    .tenx-row {
+      height: 50px;
+      line-height: 50px;
+      color: #fff;
+      background: #2C97E9;
+      letter-spacing: 2px;
+    }
+
+    .tenx-send {
+      margin: 25px 0;
+      zoom: 1;
+      clear: both;
+    }
+
+    .btn-detail {
+      border-radius: 6px;
+      color: #00afdd;
+      text-align: center;
+      padding: 6px 20px;
+      white-space: normal;
+      transition: all 0.3s;
+      display: inline-block;
+      border: 1px solid #00afdd;
+      font-size: 16px;
+    }
+
+    .btn-detail:hover {
+      color: #fff;
+      border: 1px solid #00afdd;
+      background: #00afdd;
+    }
+
+    .tenx-hrs {
+      height: 50px;
+      background: #fefefe;
+      width: 100%;
+      box-shadow: 0px 2px 4px rgb(204, 204, 204);
+    }
+
+    .hr-list {
+      border-bottom: 1px dashed #999;
+      line-height: 20px;
+    }
+
+    .hr-list a {
+      text-decoration: none;
+      color: #666;
+      float: right;
+    }
+
+    .tenx-foot {
+      height: 150px;
+      text-align: center;
+      padding-top: 80px;
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+
+    .tenx-footer {
+      height: 210px;
+      color: #fff;
+      position: relative;
+      padding: 0 50px;
+      clear: both;
+      background: url(https://dn-weekly.qbox.me/edm-footer.png)no-repeat;
+    }
+
+    .tenx-footer li {
+      line-height: 24px;
+      font-size: 14px;
+      list-style: none !important;
+    }
+
+    .tenx-footer li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .normol-footer {
+      position: absolute;
+      top: 75px;
+      list-style: none;
+    }
+
+    .weixis {
+      position: absolute;
+      right: 60px;
+      top: 65px;
+    }
+    /*.tenx-green{background: #2FBA67;}*/
+
+    .tenx-head {
+      background: white;
+      padding: 13px 30px;
+    }
+
+    .tenx-logo {
+      height: 50px;
+    }
+
+    .pull-left {
+      float: left;
+    }
+
+    .pull-right {
+      float: right;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .tenx-list {
+      overflow: hidden;
+      clear: both;
+      zoom: 1;
+    }
+
+    .tenx-list img {
+      max-width: 100%;
+    }
+    .fontbold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapBj" style="background: #EDF5F8;">
+    <div class="text-center"style="padding-top:55px;height:50px;"><img src="https://dn-tenxcloud-static.qbox.me/img/logoSmall.png" alt="TenxCloud" style="display: inline-block"></div>
+    <div class="tenx-body">
+      <div class="tenx-list text-center"><img src="https://dn-weekly.qbox.me/edm-tops.png">
+        <div class="tenx-h3 padding50" style="padding-top:30px;font-weight: 600;">时速云 TenxCloud 正式加入  CNCF 和 Linux 基金会</div>
+
+        <div class="tenx-h4 padding50">拥抱开源，共建生态，开启未来。时速云的加入，标志着国内容器企业逐步在国际舞台和行业内发出了自己的声音。</div>
+
+        <div class="tenx-send"><a href="http://mp.weixin.qq.com/s/yw36ufefIbAud1Iic38QwA"
+            target="_blank"><span class="btn-detail">查看详情</span></a></div>
+      </div>
+      <div style="border-top:1px dashed #E3E4E6 ;width:100%;height: 50px;text-indent: -10000px;margin-top: 30px;">tenxcloud</div>
+
+      <div class="tenx-list padding30" style="padding-bottom:20px;">
+        <div class="pull-left" style="width:320px;">
+          <div class="tenx-h3"><span class="fontbold">【趟坑总结】</span>在 Docker 里跑 Java，你必须知道的那些事儿！</div>
+
+          <div class="tenx-h4">JVM 做不了内存限制，一旦超出资源限制，容器就会出错！怎么解决？除了用 Dockfile 中的环境变量来定义 JVM 的额外参数，还可以…</div>
+        </div>
+
+        <div class="pull-right" style="padding-top:10px;"><a href="http://mp.weixin.qq.com/s/yLoCfwoDte5h9JO8Wlb2uA"
+            target="_blank"><img src="https://dn-weekly.qbox.me/dockerInJava.jpg"></a></div>
+
+        <div class="tenx-send"><a href="http://mp.weixin.qq.com/s/yLoCfwoDte5h9JO8Wlb2uA"
+            target="_blank"><span class="btn-detail">查看详情</span></a></div>
+      </div>
+      <div class="tenx-list padding30" style="padding-bottom:20px;">
+        <div class="pull-left" style="width:320px;">
+          <div class="tenx-h3"><span class="fontbold">【贴心梳理】</span>一张图读懂 Kubernetes 1.6 </div>
+
+          <div class="tenx-h4">将Kubernetes 1.6 版本中的新功能、新特性：规模、安全设置、调度灵活性、动态存储配置、Alpha features以思维导图的方式做了整理，供大家参考</div>
+        </div>
+
+        <div class="pull-right" style="padding-top:10px;"><a href="http://mp.weixin.qq.com/s/3GAegjKy-Rc5yQqhEMsQgg"
+            target="_blank"><img src="https://dn-weekly.qbox.me/kubernetes1.6.jpg"></a></div>
+
+        <div class="tenx-send"><a href="http://mp.weixin.qq.com/s/3GAegjKy-Rc5yQqhEMsQgg"
+            target="_blank"><span class="btn-detail">查看详情</span></a></div>
+      </div>
+
+      <div class="tenx-list padding30" style="padding-bottom:20px;">
+        <div class="pull-left" style="width:320px;">
+          <div class="tenx-h3"><span class="fontbold">【技术力Max】</span>时速云获国家高新技术企业认证</div>
+
+          <div class="tenx-h4">时速云获得由北京市科学技术委员会、北京市财政局、北京市国家税务局、北京市地方税务局联合颁发的高新技术企业认证证书。
+            ​</div>
+        </div>
+
+        <div class="pull-right" style="padding-top:10px;"><a href="http://mp.weixin.qq.com/s/pQC_DmCNQcsAhMtkc1uZGw"
+            target="_blank"><img src="https://dn-weekly.qbox.me/powerMax.jpg"></a></div>
+
+        <div class="tenx-send"><a href="http://mp.weixin.qq.com/s/pQC_DmCNQcsAhMtkc1uZGw"
+            target="_blank"><span class="btn-detail">查看详情</span></a></div>
+      </div>
+
+      <div class="tenx-list padding30" style="padding-bottom:20px;">
+        <div class="pull-left" style="width:320px;">
+          <div class="tenx-h3"><span class="fontbold">【产品培训】</span>第一期训练营招募持续进行中 </div>
+
+          <div class="tenx-h4">我们将带你体验2.0酷酷的交互界面，流畅的产品功能并与你一起KO使用过程中的疑难杂症！</div>
+        </div>
+
+        <div class="pull-right" style="padding-top:10px;"><a href="http://mp.weixin.qq.com/s/Q6sc-qZgBLHcOPjdCR22jg"
+            target="_blank"><img src="https://dn-weekly.qbox.me/ko.jpg"></a></div>
+
+        <div class="tenx-send" ><a href="http://mp.weixin.qq.com/s/Q6sc-qZgBLHcOPjdCR22jg"
+            target="_blank"><span class="btn-detail">查看详情</span></a></div>
+      </div>
+
+      <div class="tenx-footer">
+        <ul class="normol-footer">
+          <li>客服电话：<span style="border-bottom-width: 1px; border-bottom-color: rgb(204, 204, 204); z-index: 1; position: static;"
+              t="7" onclick="return false;" data="400-626-1876">400-626-1876</span></li>
+          <li>官方网站： <a href="http://sctrack.tenxcloud.net/track/click/eyJ1c2VyX2lkIjogMzI0MDksICJ0YXNrX2lkIjogIiIsICJlbWFpbF9pZCI6ICIxNDc4MjUzOTM1NTY5XzMyNDA5XzIxOTkwXzkxNjQuc2MtMTBfOV80XzQwLWluYm91bmQzMCQyMDg1MDI5MzIxQHFxLmNvbSIsICJzaWduIjogImZmNmFmMDkzMjlhNGMxOTQwNjU4NmVhMmQ1NmE4MTdjIiwgInVzZXJfaGVhZGVycyI6IHt9LCAibGFiZWwiOiAwLCAibGluayI6ICJodHRwcyUzQS8vd3d3LnRlbnhjbG91ZC5jb20vIiwgImNhdGVnb3J5X2lkIjogODY1MDZ9.html"
+              target="_blank">www.tenxcloud.com</a></li>
+          <li>邮 箱：<a href="mailto:service@tenxcloud.com" target="_blank">service@tenxcloud.com</a></li>
+          <li>微 博：<a href="http://sctrack.tenxcloud.net/track/click/eyJ1c2VyX2lkIjogMzI0MDksICJ0YXNrX2lkIjogIiIsICJlbWFpbF9pZCI6ICIxNDc4MjUzOTM1NTY5XzMyNDA5XzIxOTkwXzkxNjQuc2MtMTBfOV80XzQwLWluYm91bmQzMCQyMDg1MDI5MzIxQHFxLmNvbSIsICJzaWduIjogImMwMTM2ZjExMDYyYTNkMmU0MWRjNWY1OTAzNGQ5NDE0IiwgInVzZXJfaGVhZGVycyI6IHt9LCAibGFiZWwiOiAwLCAibGluayI6ICJodHRwJTNBLy93ZWliby5jb20vdGVueGNsb3VkIiwgImNhdGVnb3J5X2lkIjogODY1MDZ9.html"
+              target="_blank">http://weibo.com/tenxcloud</a></li>
+        </ul>
+
+        <div class="weixis"><img src="https://dn-tenximage.qbox.me/qrcode.jpg" style="width:120px"></div>
+      </div>
+    </div>
+    <div class="" style="width:600px;margin:20px auto;height: 100px;font-size: 12px;">
+      <div class="pull-left" style="width:180px;"><img src="https://dn-tenxcloud-static.qbox.me/logoBig.png" alt="TenxCloud"></div>
+      <div class="pull-left " style="color: #999"><div style="line-height: 25px;">时速云 © 2017 北京云思畅想科技有限公司  京ICP备14045471号</div><div style="line-height: 25px;">市场合作：<a href="mailto:market@tenxcloud.com" style="text-decoration: none;color: #37BBF4;">market@tenxcloud.com</a></div></div>
+
+    </div>
+  </div>
+</body>
+
+</html>

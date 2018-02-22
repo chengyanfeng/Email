@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>edm确定版1</title>
+    <script type="text/javascript" src="http://wiki.datahunter.cn/demo/mobilepage/page1/html5shiv.js"></script>
+    <script type="text/javascript" src="http://wiki.datahunter.cn/demo/mobilepage/page1/html5shiv-printshiv.js"></script>
+    <Link rel="stylesheet" type="text/css" href="http://wiki.datahunter.cn/demo/mobilepage/page1/css/page1.css"/>
+</head>
+<script type="text/javascript">
+    var docElement = document.documentElement;
+    var fontElement = document.createElement('style');
+    var metaElement = document.querySelector('meta[name="viewport"]');
+    var dpr = window.devicePixelRatio || 1;
+    var scale = 1/dpr;
+    var rem;
+    if (docElement.clientWidth < docElement.clientHeight) {
+        rem = docElement.clientWidth * dpr / 16;
+    } else {
+        rem = docElement.clientHeight * dpr / 16;
+    };
+    if (docElement.clientWidth > 1200) {
+        rem = 600 / 16;
+        document.getElementsByTagName('html')[0].className = 'pc_html';
+    };
+    var _family = '微软雅黑, Microsoft YaHei';
+    if (navigator.userAgent.indexOf('Mac') !== -1) {
+        _family = 'PingFang SC';
+    };
+    
+    docElement.setAttribute('data-dpr', dpr);
+    metaElement.setAttribute('content', 'width=device-width, initial-scale='+scale+', minimum-scale='+scale+', maximum-scale='+scale+',user-scalable=no');
+    fontElement.innerHTML = 'html{font-size:' + rem + 'px; font-family: '+_family+'};';
+    docElement.firstElementChild.appendChild(fontElement);
+</script>
+<body>
+    <div class="page1">
+        <header><a href="https://www.datahunter.cn/" target="blank"></a></header>
+        <div class="page1_body">
+            <h3 class="title">数据可视化之路 DataHunter邀您同行</h3>
+            <section class="content">
+                <div class="introduce">DataHunter（北京数据天下科技有限公司）是一家专注于业务数据可视化分析展示的科技公司，致力于为企业提供简单易用的业务数据可视化分析产品及数据大屏设计展示服务，帮助用户发现问题并改进业务，从而驱动企业向数字化运营转变。</div>
+                <div class="QR_code">
+                    <p>
+                        为了更好地与大家交流，特开通数据可视化行业交流群，邀您共享业内前沿资讯、
+                        案例干货、实用数据可视化技巧、学习资料等，众多志同道合的小伙伴正在等你加入！
+                    </p>
+                    <div class="QR_code_image">
+                        <span>扫描下方二维码，可立即加入群聊<br/>或者加微信号：helloqianzhihe，拉您入群</span>
+                        <br/>
+                        <img class="QR_image" src="http://wiki.datahunter.cn/demo/mobilepage/page1/image/qr_code.jpg" />
+                    </div>
+                </div>
+            </section>
+            <section class="share">
+                <h3>群内精彩内容节选</h3>
+                <ul>
+                    <li>
+                        <span>关于数据分析师，你想知道的一切都在这里</span>
+                        <div class="btn">
+                            <a class="link" href="http://mp.weixin.qq.com/s/SbcmAD3AkV5xBNssCwwxng" target="blank">查看更多</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>教你一招，轻松实现数据钻取</span>
+                        <div class="btn">
+                            <a class="link" href='http://mp.weixin.qq.com/s/JyPx63UUP7LlCWQ_JCqrng' target="blank">查看更多</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>中国工业物联网最佳实践，三一重工案例分享</span>
+                        <div class="btn">
+                            <a class="link" href='http://mp.weixin.qq.com/s/7iMYgyUdI1Ax_EicxSbxHQ' target="blank">查看更多</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>全球知名快消企业如何进行销售管理？</span>
+                        <div class="btn">
+                            <a class="link" href='http://mp.weixin.qq.com/s/_hgRuMnrwUzSXB24jEVihg' target="blank">查看更多</a>
+                        </div>
+                    </li> 
+                    <li>
+                        <span>入门：用madlib学习『机器学习』之KNN</span>
+                        <div class="btn">
+                            <a class="link" href='http://mp.weixin.qq.com/s/j4J768cmvKGxI-1-O3ri_Q' target="blank">查看更多</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span>小白必读：前端图形化技术简介</span>
+                        <div class="btn">
+                            <a class="link" href='https://mp.weixin.qq.com/s/3adg06eg52nYSqFRmgfwyA'>查看更多</a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <footer>
+            <img src="http://wiki.datahunter.cn/demo/mobilepage/page1/image/bottomBanner.jpg">
+        </footer>
+        <p class="copyright">京ICP备12012797号  ©2016 DataHunter Inc.All Rights Reserved</p>
+    </div>
+</body>
+</html>
