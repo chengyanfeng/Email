@@ -15,12 +15,15 @@ import (
 
 	"strconv"
 	"strings"
+
+	"encoding/json"
 )
 
 var (
 	email  string =""
 	html  string =""
 	i     int
+	lablename string=""
 
 )
 
@@ -42,8 +45,9 @@ func (c *MainController ) Uplaoduser() {
 		fmt.Println(err)
 		return
 	}
-
-
+	if !strings.Contains(head.Filename,".html"){
+	lablename=head.Filename[0:strings.LastIndex(head.Filename,".")]
+	}
 	//当期时间格式化
 	filename := time.Now().Format("20060102150405")
 	//获取文件的后缀
@@ -96,10 +100,14 @@ func (c *MainController ) SendMail(){
 		c.Ctx.WriteString("{\"code\":412}")
 		return
 	}
-	if sub!=""&&email!=""&&html!=""{
+	if sub!=""&&email!=""&&html!=""&&lablename!=""{
+		result:=result{}
+		jsondata:=getlableId()
+		json.Unmarshal(jsondata,&result)
+		lableid:=result.info.labelId
 		list:=strings.Split(email,";")
 		for _,v :=range list{
-		sendMail(v,sub,html)
+		sendMail(v,sub,html,lableid)
 			}
 		}
 		clear()
@@ -107,7 +115,8 @@ func (c *MainController ) SendMail(){
 	}
 
 
-func sendMail(to string,sub string,html string) {
+
+func sendMail(to string,sub string,html string,labelId string) {
 	RequestURI := "http://api.sendcloud.net/apiv2/mail/send"
 	PostParams := url.Values{
 		"apiUser": {"dh_market"},
@@ -116,6 +125,7 @@ func sendMail(to string,sub string,html string) {
 		"fromName": {"DHmarketing"},
 		"to":       {to},
 		"subject":  {sub},
+		"labelId":   {labelId},
 		"html":     {html},
 	}
 	PostBody := bytes.NewBufferString(PostParams.Encode())
@@ -131,6 +141,29 @@ func sendMail(to string,sub string,html string) {
 	}
 	fmt.Println(string(BodyByte))
 }
+func getlableId()(data [] byte) {
+	RequestURI := "http://api.sendcloud.net/apiv2/label/add"
+	PostParams := url.Values{
+		"apiUser": {"dh_market"},
+		"apiKey":  {"I5UQX23RJbLZTir2"},
+		"labelName":{lablename},
+	}
+	PostBody := bytes.NewBufferString(PostParams.Encode())
+	ResponseHandler, err := http.Post(RequestURI, "application/x-www-form-urlencoded", PostBody)
+	if err != nil {
+		fmt.Println(err)
+		panic(err)
+	}
+	defer ResponseHandler.Body.Close()
+	BodyByte, err := ioutil.ReadAll(ResponseHandler.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(BodyByte))
+	return BodyByte
+
+}
+
 func fileXlsx(filePath string)(toemail string,i int) {
 	var email string
 
@@ -139,6 +172,7 @@ func fileXlsx(filePath string)(toemail string,i int) {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+
 	rows :=xlsx.GetRows("Sheet1")
 	for _, row := range rows {
 		for k, colCell := range row {
@@ -160,4 +194,18 @@ func fileXlsx(filePath string)(toemail string,i int) {
 func clear() {
 	email=""
 	html=""
+	lablename=""
+}
+
+type  result  struct {
+	result bool
+	statusCode string
+	message string
+	info  data
+}
+type data struct{
+	gmtCreated string
+	gmtUpdated string
+	labelId string
+	labelName string
 }
