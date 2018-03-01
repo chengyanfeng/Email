@@ -101,13 +101,23 @@ func (c *MainController ) SendMail(){
 		return
 	}
 	if sub!=""&&email!=""&&html!=""&&lablename!=""{
+		var lable int
 		result:=result{}
+		resultname:=resultname{}
 		jsondata:=getlableId()
 		json.Unmarshal(jsondata,&result)
-		lableid:=result.info.labelId
+		if result.StatusCode==40113{
+		jsondata:=selectlablename()
+			json.Unmarshal(jsondata,&resultname)
+			lable=resultname.Info.DataList[0].LabelId
+
+		}else {
+		lable=result.Info.Data.LabelId
+		}
+		var lableId=strconv.Itoa(lable)
 		list:=strings.Split(email,";")
 		for _,v :=range list{
-		sendMail(v,sub,html,lableid)
+		sendMail(v,sub,html,lableId)
 			}
 		}
 		clear()
@@ -116,7 +126,7 @@ func (c *MainController ) SendMail(){
 
 
 
-func sendMail(to string,sub string,html string,labelId string) {
+func sendMail(to string,sub string,html string,labelId string ) {
 	RequestURI := "http://api.sendcloud.net/apiv2/mail/send"
 	PostParams := url.Values{
 		"apiUser": {"dh_market"},
@@ -147,6 +157,29 @@ func getlableId()(data [] byte) {
 		"apiUser": {"dh_market"},
 		"apiKey":  {"I5UQX23RJbLZTir2"},
 		"labelName":{lablename},
+	}
+	PostBody := bytes.NewBufferString(PostParams.Encode())
+	ResponseHandler, err := http.Post(RequestURI, "application/x-www-form-urlencoded", PostBody)
+	if err != nil {
+		fmt.Println(err)
+		panic(err)
+	}
+	defer ResponseHandler.Body.Close()
+	BodyByte, err := ioutil.ReadAll(ResponseHandler.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(BodyByte))
+	return BodyByte
+
+}
+func selectlablename()(data [] byte) {
+	RequestURI := "http://api.sendcloud.net/apiv2/label/list"
+	PostParams := url.Values{
+		"apiUser": {"dh_market"},
+		"apiKey":  {"I5UQX23RJbLZTir2"},
+		"query":{lablename},
+		"limit":{"1"},
 	}
 	PostBody := bytes.NewBufferString(PostParams.Encode())
 	ResponseHandler, err := http.Post(RequestURI, "application/x-www-form-urlencoded", PostBody)
@@ -198,14 +231,29 @@ func clear() {
 }
 
 type  result  struct {
-	result bool
-	statusCode string
-	message string
-	info  data
+	Result bool  `json:"result"`
+	StatusCode int `json:"statusCode"`
+	Message string `json:"message"`
+	Info  Datadate  `json:"info"`
 }
-type data struct{
-	gmtCreated string
-	gmtUpdated string
-	labelId string
-	labelName string
+type Datadate struct{
+	Data Labelid `json:"data"`
+
+}
+type  resultname  struct {
+	Result bool  `json:"result"`
+	StatusCode int `json:"statusCode"`
+	Message string `json:"message"`
+	Info  Datadatename  `json:"info"`
+}
+type Datadatename struct{
+	DataList []Labelid `json:"dataList"`
+
+}
+
+type Labelid struct{
+	GmtCreated string `json:"gmtCreated"`
+	GmtUpdated string `json:"gmtCreated"`
+	LabelId int `json:"labelId"`
+	LabelName string `json:"labelName"`
 }
