@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-aaaaaaaa
+master
 	beego.Run()
 }
 
