@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-master
+masasdfadsfater
 	beego.Run()
 }
 
