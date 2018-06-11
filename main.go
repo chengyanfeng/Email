@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	cde
-
 
 	beego.Run()
 }
