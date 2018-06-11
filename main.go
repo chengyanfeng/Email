@@ -9,7 +9,7 @@ func main() {
 
 	cde
 
-banben
+
 	beego.Run()
 }
 
